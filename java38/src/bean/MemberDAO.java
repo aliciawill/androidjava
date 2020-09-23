@@ -177,36 +177,30 @@ public class MemberDAO {
 		// true면 로그인ok.
 	}
 
-	public void update(String tel, String id) throws Exception {
+	public boolean update(MemberVO vo) throws Exception {
 	
 		// 3. sql문을 만든다.(create)
-		String sql = "update member set tel = ? where id = ?";
+		String sql = "update member set pw = ?, name = ?, tel = ? where id = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, tel);
-		ps.setString(2, id);
+		ps.setString(1, vo.getPw());
+		ps.setString(2, vo.getName());
+		ps.setString(3, vo.getTel());
+		ps.setString(4, vo.getId());
 		System.out.println("3. SQL생성 성공.!!");
 
 		// 4. sql문은 전송
-		ps.executeUpdate();
+		int row = ps.executeUpdate();
+		System.out.println("4. SQL문 전송 성공.!!");
 		ps.close();
 		con.close();
-		System.out.println("4. SQL문 전송 성공.!!");
+		boolean result = false;
+		if (row == 1) {
+			result = true;
+		}
+		return result;
 	}
 
-	public void delete(String id) throws Exception {
-//		DB프로그램 절차에 맞추어서 코딩
-//				1. connector설정
-		Class.forName("com.mysql.jdbc.Driver");
-		System.out.println("1. connector연결 성공.!!");
-
-		// 2. db연결
-//			   String url = "연결하는방법://ip:port/db명";
-		String url = "jdbc:mysql://localhost:3366/shop1";
-		String user = "root";
-		String password = "1234";
-		Connection con = DriverManager.getConnection(url, user, password);
-		System.out.println("2. db연결 성공.!!");
-
+	public boolean delete(String id) throws Exception {
 		// 3. sql문을 만든다.(create)
 		String sql = "delete from member where id = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -214,9 +208,14 @@ public class MemberDAO {
 		System.out.println("3. SQL생성 성공.!!");
 
 		// 4. sql문은 전송
-		ps.executeUpdate();
+		int row = ps.executeUpdate();
 		System.out.println("4. SQL문 전송 성공.!!");
 		ps.close();
 		con.close();
+		boolean result = false;
+		if (row == 1) {
+			result = true;
+		}
+		return result;
 	}
 }
