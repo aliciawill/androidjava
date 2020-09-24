@@ -44,6 +44,9 @@ public class MemberDAO {
 			bag.setTel(rs.getString("tel"));
 			list.add(bag);
 		}
+		rs.close();
+		ps.close();
+		con.close();
 		return list;
 		// bag은 참조형 변수, 주소를 전달!
 	}
@@ -68,6 +71,9 @@ public class MemberDAO {
 			bag.setTel(rs.getString("tel"));
 			list.add(bag);
 		}
+		rs.close();
+		ps.close();
+		con.close();
 		return list;
 		// bag은 참조형 변수, 주소를 전달!
 	}
@@ -91,6 +97,9 @@ public class MemberDAO {
 			bag.setTel(rs.getString("tel"));
 			list.add(bag);
 		}
+		rs.close();
+		ps.close();
+		con.close();
 		return list;
 		// bag은 참조형 변수, 주소를 전달!
 	}
