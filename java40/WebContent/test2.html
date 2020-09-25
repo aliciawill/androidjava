@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<input type="text" id="test" value="안녕">
+<script type="text/javascript">
+//선택자(selector, 태그명, 클래스명, id명):함수가 다 달랐음.
+	document.getElementById('test')
+	document.getElementByTagNames('input')
+	//선택자에 따라 구분하지 않고 함수가 동일
+	document.querySelector('#test'), querySelectorAll('.test')
+	//jquery에서 선택자를 할 때는 $로 대체!
+	$('#test'), $('input'), $('.td[href == www.naver.com]')
+</script>
+</body>
+</html>
