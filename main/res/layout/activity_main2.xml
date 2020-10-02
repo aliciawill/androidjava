@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@color/white"
+    android:padding="10dp"
+    >
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="선택을 시작하겠습니까?"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="시작함"
+        android:textColor="#0000FF"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="좋아하는 애완동물은?"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:visibility="invisible">
+
+        <RadioButton
+            android:id="@+id/dog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="강아지"
+            android:textColor="#028107"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/cat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="고양이"
+            android:textColor="#028107"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/rabbit"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:text="토끼"
+            android:textColor="#028107"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+
+    </RadioGroup>
+    <Button
+        android:id="@+id/b"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:visibility="invisible"
+        android:text="선택완료"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="382dp"
+        android:layout_height="153dp"
+        android:src="@drawable/oreo"
+        android:visibility="invisible" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="257dp"
+        android:layout_height="98dp"
+        android:checked="false"
+        android:text="시작함"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:thumb="@drawable/oreo"
+        android:trackTint="@color/red"
+        tools:checked="false" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="메인으로"
+        android:textSize="24sp" />
+    <!--    color를 지정하고자 하는 경우, colors.xml에 색을 등록하고 사용할 것.
+            colors.xml의 왼쪽을 누르면 칼라 빠레트가 열림.
+    -->
+</LinearLayout>
