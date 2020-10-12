@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-test
+test중이야...git....
 </body>
 </html>
