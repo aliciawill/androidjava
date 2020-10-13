@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+$(function() {
+	$('#b1').click(function() {
+		//xml이 있는 주소로 ajax통신하면 됨.
+		$.ajax({
+			url: 'data/rank.xml',
+			success: function(doc) {
+				console.log('xml연결 성공!!')
+				console.log('xml결과 : ' + doc)
+				list = $(doc).find('rank')
+				if(list.length >0){
+					//alert('rank가 여러개 있어요')
+					/* for (var i = 0; i < list.length; i++) {
+						alert($(list[i]).find('name').text())
+					} */
+					$(list).each(function() {
+						name = $(this).find('name').text()
+						tel = $(this).find('tel').text()
+						console.log('이름: ' + name + ' 전화번호: ' + tel)
+						$('#d1').append('이름: ' + name + ' 전화번호: ' + tel + '<br>')
+					})
+				}
+			}
+		})
+	})
+	$('#b3').click(function() {
+		//xml이 있는 주소로 ajax통신하면 됨.
+		$.ajax({
+			url: 'data/member.xml',
+			success: function(doc) {
+				console.log('xml연결 성공!!')
+				console.log('xml결과 : ' + doc)
+				list = $(doc).find('record')
+				if(list.length >0){
+					$(list).each(function() {
+						name = $(this).find('name').text()
+						age = $(this).find('age').text()
+						company = $(this).find('company').text()
+						tel = $(this).find('tel').text()
+						console.log('이름: ' + name + ', 회사: ' + company +  ', 나이: ' + age  + ', 전화번호: ' + tel )
+						$('#d1').append('이름: ' + name + ', 회사: ' + company +  ', 나이: ' + age  + ', 전화번호: ' + tel+ '<br>')
+					})
+				}
+			}
+		})
+	})
+	$('#b2').click(function() {
+		//json이 있는 주소로 ajax통신하면 됨.
+		$.ajax({
+			url: 'data/rank.json',
+			success: function(result) {
+				console.log('json연결 성공!!')
+				console.log('json결과 : ' + result)
+				
+			}
+		})
+	})
+})
+</script>
+</head>
+<body>
+<button id='b1'>XML파일 읽어오기</button>
+<button id='b2'>JSON파일 읽어오기</button>
+<button id='b3'>member.xml 읽어오기</button>
+<hr>
+<div id='d1'></div>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+$(function() {
+	$('#b1').click(function() {
+		//xml이 있는 주소로 ajax통신하면 됨.
+		$.ajax({
+			url: 'data/speed.xml',
+			success: function(doc) {
+				console.log('xml연결 성공!!')
+				console.log('xml결과 : ' + doc)
+				list = $(doc).find('item')
+				if(list.length >0){
+					 $(list).each(function() {
+						title = $(this).find('title').text()
+						link = $(this).find('link').text()
+						console.log(title)
+						console.log(link)
+						//$('#d1').append(title + ', ' + link +  '<br>')
+						$('#d1').append('- <a href=' + link +  '>' + title + '</a><br>')
+						//db에 넣자.
+						$.ajax({
+							url: 'db1.jsp',
+							data: {
+								
+							},
+							success: function(result) {
+								alert('db에 전송 성공!')
+							}
+						})
+					}) 
+				}
+			}
+		})
+	})
+	
+})
+</script>
+</head>
+<body>
+<button id='b1'>속보 XML파일 읽어오기</button>
+<hr>
+<div id='d1'></div>
+</body>
+</html>
+
+
+
+
+
